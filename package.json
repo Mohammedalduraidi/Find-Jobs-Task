@@ -1,0 +1,25 @@
+{
+  "name": "find-jobs-task",
+  "version": "1.0.0",
+  "description": "its a website that you can apply for jobs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammedalduraidi/Find-Jobs-Task.git"
+  },
+  "author": "Mohammed Duraidi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammedalduraidi/Find-Jobs-Task/issues"
+  },
+  "homepage": "https://github.com/Mohammedalduraidi/Find-Jobs-Task#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.11",
+    "path": "^0.12.7"
+  }
+}
