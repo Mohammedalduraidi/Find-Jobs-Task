@@ -1,0 +1,36 @@
+<mat-form-field>
+    <mat-select name='acctype_id' [(ngModel)]="access" (ngModelChange)="onSelect($event)" placeholder="Select Type">
+        <mat-option *ngFor="let acctype of acctypes" [value]="acctype.value">
+            {{ acctype.viewValue }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br />
+<div mat-dialog-content>
+    <mat-form-field class="full-width">
+        <input matInput type="text" placeholder="Enter Username">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <input matInput type="text" placeholder="Enter Email">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Enter Password">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Confirm Password">
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions *ngIf="access === 'bm' || access === '';  then bussinessManager else projectManager">
+</div>
+<ng-template #bussinessManager>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Submit</button>
+</ng-template>
+<ng-template #projectManager>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>test</button>
+</ng-template>
