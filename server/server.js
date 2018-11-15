@@ -2,19 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const session = require('express-session');
-const db = require('./data-base/index')
-//-----------------------MIDDLE WARES---------------------------------------------
+const logger = require('morgan');
+const authUsers = require('./AuthUsers/index');
+
+//-----------------------MIDDLE WARES---------------------------------------------//
 app.use(express.static(path.join(__dirname, '../find-job-client/dist/find-job-client')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({
-    secret: 'very very secret',
-    resave: true,
-    saveUninitialized: true
-}));
-
-//--------------------------------------------------------------------------------
+app.use(logger('dev'));
+app.use(authUsers)
+//--------------------------------------------------------------------------------//
 
 //This route to handling all the request above
 app.get('/*', (req, res) => {
