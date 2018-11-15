@@ -11,5 +11,21 @@ db.once('open', () => {
     console.log('mongoose connected successfully');
 });
 
-
 let Schema = mongoose.Schema; // Create a mongoose schema 
+
+let pmSchema = new Schema({ //project manager schema
+    username: { type: String },
+    email: { type: String },
+    password: { type: String }
+})
+
+let bmSchema = new Schema({ //business manager schema
+    username: { type: String },
+    email: { type: String },
+    password: { type: String }
+})
+bmSchema = mongoose.model('bmSchema', bmSchema)
+pmSchema = mongoose.model('pmSchema', pmSchema)
+
+module.exports.pmSchema = pmSchema
+module.exports.bmSchema = bmSchema
