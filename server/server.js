@@ -9,7 +9,7 @@ const authUsers = require('./AuthUsers/index');
 app.use(express.static(path.join(__dirname, '../find-job-client/dist/find-job-client')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(logger('dev'));
+app.use(logger('dev')); //log all the requests to the console
 app.use(authUsers)
 //--------------------------------------------------------------------------------//
 
